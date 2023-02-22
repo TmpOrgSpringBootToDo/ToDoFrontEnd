@@ -4,7 +4,7 @@ import { useState } from 'react'
 import useLocalStorage from './hooks/useLocalStorage'
 
 // custom components
-import CustomForm from './components/CustomForm'
+import MainForm from './components/MainForm'
 import EditForm from './components/EditForm'
 import TaskList from './components/TaskList'
 
@@ -64,7 +64,7 @@ function App() {
           />
         )
       }
-      <CustomForm addTask={addTask}/>
+      <MainForm addTask={addTask}/>
       {tasks && (
         <TaskList
           tasks={tasks}
