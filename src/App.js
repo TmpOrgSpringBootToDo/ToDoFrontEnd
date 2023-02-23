@@ -1,12 +1,13 @@
 import { useState } from 'react'
 
-// custom hooks
+
 import useLocalStorage from './hooks/useLocalStorage'
 
-// custom components
+
 import MainForm from './components/MainForm'
 import EditForm from './components/EditForm'
 import TaskList from './components/TaskList'
+import {NavBar} from "./components/NavBar";
 
 function App() {
   const [tasks, setTasks] = useLocalStorage('react-todo.tasks', []);
@@ -52,6 +53,7 @@ function App() {
 
   return (
     <div className="container">
+      <NavBar/>
       <header>
         <h1>ToDoViewer - V.1.0.0</h1>
       </header>
