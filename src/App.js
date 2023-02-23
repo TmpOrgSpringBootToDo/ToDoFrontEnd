@@ -1,26 +1,10 @@
-import { useState } from 'react'
 
-// custom hooks
-import useLocalStorage from './hooks/useLocalStorage'
-
-// custom components
-import MainForm from './components/MainForm'
-import EditForm from './components/EditForm'
-import TaskList from './components/TaskList'
-import {NavBar} from "./components/NavBar";
-import Center from "./Center";
-import {Nav} from "react-bootstrap";
-import {SignUp} from "./components/SignUp";
-import {Login} from "./components/Login";
 import {RouteView} from "./components/RouteView";
 
 function App() {
   return (
       <div>
         <RouteView/>
-        {/*<Center/>*/}
-        {/*  <SignUp/>*/}
-
       </div>
   );
 }

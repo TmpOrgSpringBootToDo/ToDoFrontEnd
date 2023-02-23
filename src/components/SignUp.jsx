@@ -1,34 +1,44 @@
 import {useState} from "react";
 import {PlusCircleIcon} from "@heroicons/react/24/solid";
 import styles from './SignUp.module.css';
+import useLocalStorage from "../hooks/useLocalStorage";
+
+
 
 export const SignUp = ({addUser}) => {
     const [userName, setUserName] = useState("");
     const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const handleFormSubmit = (e) => {
+
         e.preventDefault();
+
         addUser({
-            name: userName,
-            checked: false,
-            id: Date.now()
+            userName: e.target.userName.value,
+            email: e.target.email.value,
+            password: e.target.password.value,
         })
+        console.log(addUser);
         setUserName("")
     }
 
    return(
-     <form>
+     <form
+         className={styles.todo}
+         onSubmit={handleFormSubmit}
+     >
          <div className={styles.wrapper}>
              <input
                  type="text"
                  id="userName"
                  className={styles.input}
-                 value={userName}
-                 onInput={(e) => setUserName(e.target.value)}
+                 defaultValue={userName}
+                // onInput={(e) => setUserName(e.target.value)}
                  required
                  autoFocus
                  maxLength={20}
                  placeholder="Enter Task"
+                 name="userName"
              />
              <label
                  htmlFor="userName"
@@ -38,12 +48,13 @@ export const SignUp = ({addUser}) => {
                  type="email"
                  id="email"
                  className={styles.input}
-                 value={email}
-                 onInput={(e) => setEmail(e.target.value)}
+                 defaultValue={email}
+                 // onInput={(e) => setEmail(e.target.value)}
                  required
                  autoFocus
                  maxLength={20}
                  placeholder="Enter Task"
+                 name="email"
              />
              <label
                  htmlFor="email"
@@ -53,12 +64,13 @@ export const SignUp = ({addUser}) => {
                  type="password"
                  id="password"
                  className={styles.input}
-                 value={password}
-                 onInput={(e) => setPassword(e.target.value)}
+                 defaultValue={password}
+                 // onInput={(e) => setPassword(e.target.value)}
                  required
                  autoFocus
                  maxLength={20}
                  placeholder="Enter Task"
+                 name="password"
              />
              <label
                  htmlFor="password"
@@ -75,5 +87,6 @@ export const SignUp = ({addUser}) => {
              <PlusCircleIcon />
          </button>
      </form>
+
    );
 }

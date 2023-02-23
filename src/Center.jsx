@@ -7,13 +7,16 @@ import useLocalStorage from './hooks/useLocalStorage'
 import MainForm from './components/MainForm'
 import EditForm from './components/EditForm'
 import TaskList from './components/TaskList'
-import {NavBar} from "./components/NavBar";
+
+
 
 function Center() {
   const [tasks, setTasks] = useLocalStorage('react-todo.tasks', []);
   const [previousFocusEl, setPreviousFocusEl] = useState(null);
   const [editedTask, setEditedTask] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
+
+
 
   const addTask = (task) => {
     setTasks(prevState => [...prevState, task])
