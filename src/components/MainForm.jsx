@@ -1,14 +1,11 @@
 import {useState} from 'react';
-import Axios from "axios";
-
-
 import {PlusIcon} from '@heroicons/react/24/solid'
+import {saveTask} from "../handlers/TodoHandler";
 
 const MainForm = ({addTask}) => {
     const [task, setTask] = useState("");
 
     const handleFormSubmit = (e) => {
-
         e.preventDefault();
         const todoTask = {
             name: task,
@@ -17,31 +14,7 @@ const MainForm = ({addTask}) => {
         }
         addTask(todoTask)
         setTask("")
-        callTodoAPI(todoTask)
-    }
-
-    /**
-     * {
-     *     "userIdTodo":"d88c65bc-e2b2-4039-bf55-801bfda0dd90",
-     *     "toDo":"mytodo",
-     *     "dateTime": "{{currentDate}}"
-     * }
-     * @param todoTask
-     */
-    const callTodoAPI = (todoTask) => {
-        const data = {
-            userIdTodo: "d88c65bc-e2b2-4039-bf55-801bfda0dd90",
-            toDo: todoTask.name,
-            dateTime: new Date()
-        }
-        console.log(`todoTaskData: ${JSON.stringify(data)}`)
-        Axios.post("http://localhost:8080/todo/api/v1/users/d88c65bc-e2b2-4039-bf55-801bfda0dd90/todo", data)
-            .then(res => {
-                console.log(`Response: ${JSON.stringify((res))}`)
-            })
-            .catch(err => {
-                console.error(err);
-            })
+        saveTask(todoTask)
     }
 
     return (

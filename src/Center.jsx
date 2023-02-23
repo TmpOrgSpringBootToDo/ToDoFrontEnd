@@ -1,4 +1,4 @@
-import { useState } from 'react'
+import { useState, useEffect } from 'react'
 
 // custom hooks
 import useLocalStorage from './hooks/useLocalStorage'
@@ -7,22 +7,27 @@ import useLocalStorage from './hooks/useLocalStorage'
 import MainForm from './components/MainForm'
 import EditForm from './components/EditForm'
 import TaskList from './components/TaskList'
-
-
+import { findAllTasks, deleteTask } from "./handlers/TodoHandler";
 
 function Center() {
-  const [tasks, setTasks] = useLocalStorage('react-todo.tasks', []);
+  const [tasks, setTasks] = /*useLocalStorage('react-todo.tasks', [])*/ useState([]);
+
   const [previousFocusEl, setPreviousFocusEl] = useState(null);
   const [editedTask, setEditedTask] = useState(null);
   const [isEditing, setIsEditing] = useState(false);
 
-
+  useEffect(() => {
+    findAllTasks("d88c65bc-e2b2-4039-bf55-801bfda0dd90", (err, tasks) => {
+      setTasks(tasks)
+    })
+  }, [])
 
   const addTask = (task) => {
     setTasks(prevState => [...prevState, task])
   }
 
-  const deleteTask = (id) => {
+  const deleteTodoTask = (id) => {
+    deleteTask("d88c65bc-e2b2-4039-bf55-801bfda0dd90", id)
     setTasks(prevState => prevState.filter(t => t.id !== id));
   }
 
@@ -72,7 +77,7 @@ function Center() {
       {tasks && (
         <TaskList
           tasks={tasks}
-          deleteTask={deleteTask}
+          deleteTask={deleteTodoTask}
           toggleTask={toggleTask}
           enterEditMode={enterEditMode}
         />
