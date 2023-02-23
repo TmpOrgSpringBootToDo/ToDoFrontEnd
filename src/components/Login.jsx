@@ -45,7 +45,6 @@ export const Login = ({addUser}) => {
                     autoFocus
                     maxLength={20}
 
-
                 />
                 <label
                     htmlFor="password"

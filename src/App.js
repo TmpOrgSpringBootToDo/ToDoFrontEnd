@@ -12,14 +12,15 @@ import Center from "./Center";
 import {Nav} from "react-bootstrap";
 import {SignUp} from "./components/SignUp";
 import {Login} from "./components/Login";
+import {RouteView} from "./components/RouteView";
 
 function App() {
   return (
       <div>
-        <NavBar/>
+        <RouteView/>
         {/*<Center/>*/}
         {/*  <SignUp/>*/}
-          <Login/>
+
       </div>
   );
 }

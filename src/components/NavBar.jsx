@@ -2,6 +2,8 @@ import React from "react";
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
+import {Link} from "react-router-dom";
+
 export const NavBar = () =>{
     return(
         <div>
@@ -17,9 +19,15 @@ export const NavBar = () =>{
                 }}
             >
                 <ButtonGroup size="large" aria-label="large button group">
-                    <Button>ToDo-View</Button>
-                    <Button>Sign-In</Button>
-                    <Button>Sign-Up</Button>
+                    <Link to="/">
+                        <Button>Sign-In</Button>
+                    </Link>
+                    <Link to="/signup">
+                        <Button>Sign-Up</Button>
+                    </Link>
+                    <Link to="/todo">
+                        <Button>ToDoView</Button>
+                    </Link>
                 </ButtonGroup>
 
             </Box>
