@@ -36,7 +36,7 @@ const MainForm = ({ addTask }) => {
         <label
           htmlFor="task"
           className="label"
-        >Enter Task</label>
+        >ADD YOUR TASK</label>
       </div>
       <button
         className="btn"

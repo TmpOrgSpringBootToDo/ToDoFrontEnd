@@ -53,7 +53,7 @@ function App() {
   return (
     <div className="container">
       <header>
-        <h1>My Task List</h1>
+        <h1>ToDoViewer - V.1.0.0</h1>
       </header>
       {
         isEditing && (
