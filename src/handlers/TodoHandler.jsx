@@ -1,4 +1,4 @@
-import {get, post, destroy} from "./APIHandler";
+import {get, post, patch, destroy} from "./APIHandler";
 
 /**
  * {
@@ -52,6 +52,29 @@ const saveTask = (todoTask) => {
     )
 }
 
+
+const editTask = (taskId, todoTask, callback) => {
+    const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
+    const updateUrl = `http://localhost:8080/todo/api/v1/users/${userId}/todo/${taskId}`
+    patch(
+        updateUrl,
+        {
+            userIdTodo: "d88c65bc-e2b2-4039-bf55-801bfda0dd90",
+            toDo: todoTask.name,
+            dateTime: new Date()
+        },
+        (err, res) => {
+            if(err){
+                //TODO: Handle error
+                callback(err, null)
+                return
+            }
+            console.log(res)
+            callback(null, res)
+        }
+    )
+}
+
 const deleteTask = (userId, taskId) => {
     const deleteUrl = `http://localhost:8080/todo/api/v1/users/${userId}/todo/${taskId}`
     destroy(deleteUrl, (err, msg) => {
@@ -63,4 +86,4 @@ const deleteTask = (userId, taskId) => {
     })
 }
 
-export { findAllTasks, saveTask, deleteTask };
+export { findAllTasks, saveTask, editTask, deleteTask };

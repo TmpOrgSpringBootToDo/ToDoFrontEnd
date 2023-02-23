@@ -7,7 +7,7 @@ import useLocalStorage from './hooks/useLocalStorage'
 import MainForm from './components/MainForm'
 import EditForm from './components/EditForm'
 import TaskList from './components/TaskList'
-import { findAllTasks, deleteTask } from "./handlers/TodoHandler";
+import { findAllTasks, deleteTask, editTask } from "./handlers/TodoHandler";
 
 function Center() {
   const [tasks, setTasks] = /*useLocalStorage('react-todo.tasks', [])*/ useState([]);
@@ -39,7 +39,14 @@ function Center() {
     )))
   }
 
-  const updateTask = (task) => {
+  const updateTodoTask = (task) => {
+    editTask(task.id, task, (err, res) => {
+      if(err){
+        // TODO: Handle error
+        return
+      }
+      console.log(res)
+    })
     setTasks(prevState => prevState.map(t => (
       t.id === task.id
         ? { ...t, name: task.name }
@@ -68,7 +75,7 @@ function Center() {
         isEditing && (
           <EditForm
             editedTask={editedTask}
-            updateTask={updateTask}
+            updateTask={updateTodoTask}
             closeEditMode={closeEditMode}
           />
         )

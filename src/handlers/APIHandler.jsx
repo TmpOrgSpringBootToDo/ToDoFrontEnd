@@ -24,6 +24,18 @@ const post = (url, data, callback) => {
         })
 }
 
+const patch = (url, data, callback) => {
+    Axios.patch(url, data)
+        .then(res => {
+            console.log(`Response: ${JSON.stringify(res)}`)
+            callback(null, res)
+        })
+        .catch(err => {
+            console.error(err);
+            callback(err, null)
+        })
+}
+
 const destroy = (url, callback) => {
     Axios.delete(url)
         .then(res => {
@@ -36,4 +48,4 @@ const destroy = (url, callback) => {
         })
 }
 
-export { get, post, destroy };
+export { get, post, patch, destroy };
