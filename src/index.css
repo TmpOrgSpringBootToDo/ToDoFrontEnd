@@ -26,14 +26,14 @@ label {
   --_ttype_squish: cubic-bezier(0.86, -0.1, 0.27, 1.15);
 
   /* Light Mode */
-  --bg--light: var(--_hue) 30% 94%;
-  --txt--light: var(--_hue) 40% 5%;
-  --accent--light: var(--_hue) 55% 50%;
-  --accent1--light: 10 80% 60%;
+  --bg--light: var(--_hue) 50% 10%;
+  --txt--light: var(--_hue) 40% 10%;
+  --accent--light: var(--_hue) 80% 50%;
+  --accent1--light: 10 90% 60%;
   --muted--light: var(--_hue) 30% 99%;
   /* Dark Mode */
-  --bg--dark: var(--_hue) 15% 10%;
-  --txt--dark: var(--_hue) 30% 88%;
+  --bg--dark: var(--_hue) 10% 10%;
+  --txt--dark: var(--_hue) 30% 100%;
   --accent--dark: var(--_hue) 50% 50%;
   --accent1--dark: 10 55% 50%;
   --muted--dark: var(--_hue) 20% 4%;
