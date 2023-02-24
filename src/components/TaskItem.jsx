@@ -7,13 +7,30 @@ import styles from './TaskItem.module.css';
 import { CheckIcon  } from '@heroicons/react/24/outline';
 import { PencilSquareIcon  } from '@heroicons/react/24/outline';
 import { TrashIcon } from '@heroicons/react/24/outline';
+import {editTask, isComplete} from "../handlers/TodoHandler";
 
 const TaskItem = ({ task, deleteTask, toggleTask, enterEditMode }) => {
-  const [isChecked, setIsChecked ] = useState(task.checked);
+  const [isChecked, setIsChecked ] = useState(task.isChecked);
 
   const handleCheckboxChange = (e) =>{
-    setIsChecked(!isChecked);
+    setIsChecked(e.target.checked);
     toggleTask(task.id);
+
+
+    const completeStatus ={
+      name: task.name,
+      taskId:task.id,
+      isComplete:e.target.checked
+    }
+    console.log(completeStatus);
+    // isComplete(completeStatus);
+    editTask(task.id, completeStatus, (err, res) => {
+      if(err){
+        // TODO: Handle error
+        return
+      }
+      console.log(res)
+    })
   }
 
   return (

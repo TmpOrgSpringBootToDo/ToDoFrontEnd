@@ -42,7 +42,8 @@ const saveTask = (todoTask) => {
         {
             userIdTodo: "d88c65bc-e2b2-4039-bf55-801bfda0dd90",
             toDo: todoTask.name,
-            dateTime: new Date()
+            dateTime: new Date(),
+            isComplete:todoTask.isComplete
         },
         (err, res) => {
             if(err){
@@ -59,13 +60,16 @@ const editTask = (taskId, todoTask, callback) => {
     // const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
     const userId = localStorage.getItem("userId")
     const updateUrl = `http://localhost:8080/todo/api/v1/users/${userId}/todo/${taskId}`
+    const data = {
+        userIdTodo: userId,
+        toDo: todoTask.name,
+        dateTime: new Date(),
+        isComplete: todoTask.isComplete
+    }
+    console.log(JSON.stringify(data))
     patch(
         updateUrl,
-        {
-            userIdTodo: "d88c65bc-e2b2-4039-bf55-801bfda0dd90",
-            toDo: todoTask.name,
-            dateTime: new Date()
-        },
+        data,
         (err, res) => {
             if(err){
                 //TODO: Handle error
@@ -77,6 +81,35 @@ const editTask = (taskId, todoTask, callback) => {
         }
     )
 }
+
+const isComplete = (completeStatus) => {
+    // const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
+    const userId = localStorage.getItem("userId")
+    const updateUrl = `http://localhost:8080/todo/api/v1/users/${userId}/todo/${completeStatus.taskId}`
+    patch(
+        updateUrl,
+        {
+            userIdTodo: "d88c65bc-e2b2-4039-bf55-801bfda0dd90",
+            toDo: completeStatus.taskName,
+            dateTime: new Date(),
+            isComplete:completeStatus.complete
+        },
+        (err, res) => {
+            if(err){
+                //TODO: Handle error
+                // callback(err, null)
+                // return
+            }
+            console.log(res)
+            //callback(null, res)
+        }
+    )
+}
+
+
+
+
+
 
 const deleteTask = (userId, taskId) => {
     const useId = localStorage.getItem("userId")
@@ -90,4 +123,4 @@ const deleteTask = (userId, taskId) => {
     })
 }
 
-export { findAllTasks, saveTask, editTask, deleteTask };
+export { findAllTasks, saveTask, editTask, deleteTask,isComplete };

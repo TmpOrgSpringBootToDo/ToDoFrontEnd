@@ -10,7 +10,7 @@ const MainForm = ({addTask}) => {
         e.preventDefault();
         const todoTask = {
             name: task,
-            checked: false,
+            isComplete: false,
             id: Date.now()
         }
         addTask(todoTask)
