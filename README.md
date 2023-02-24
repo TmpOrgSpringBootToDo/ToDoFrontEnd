@@ -15,6 +15,10 @@ added soon for enhance the standers of the project.
 ![MUI](https://img.shields.io/badge/MUI-%230081CB.svg?style=for-the-badge&logo=mui&logoColor=white)
 ![NPM](https://img.shields.io/badge/NPM-%23000000.svg?style=for-the-badge&logo=npm&logoColor=white)
 
+## Temporary / Testing Username and Password for front end is:
+## Username : a
+## password: b
+
 ## Licence
 [MIT](./License.txt) License
 #### Copyright - 2023 - Present | Thanura Silva | All Rights Reserved
