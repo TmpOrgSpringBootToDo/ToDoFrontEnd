@@ -85,6 +85,7 @@ label {
   }
 }
 
+
 /* prefers reduced motion */
 @media (prefers-reduced-motion: reduce) {
   :root {
@@ -240,4 +241,15 @@ hr {
   border-radius: var(--_radius);
   border: 0.1em solid hsl(var(--accent) / 0.3);
   box-shadow: 0 -1em 3em hsl(var(--muted)), 0 1em 3em hsl(var(--accent) / 0.2);
+}
+.btn-color{
+  background-color: mediumvioletred;
+}
+
+.hidden{
+  display: none;
+}
+
+.display-flex{
+  display: flex;
 }

@@ -28,6 +28,24 @@ hr {
 
 .btn {
     max-width: fit-content;
+    /*display: flex;*/
+    margin-right: 8px;
+    place-items: center;
+    gap: 0.5em;
+    background-color: hsl(var(--accent));
+    color: hsl(var(--bg));
+    text-decoration: none;
+    padding: 0.5em;
+    border-radius: var(--_radius);
+    box-shadow: 0.05em 0.1em 0.9em hsl(var(--accent) / 0.3),
+    0 0 0 -0.1em hsl(var(--bg)), 0 0 0 -0.2em hsl(var(--accent));
+    transition: box-shadow var(--_tspeed_fast) var(--_ttype_squish),
+    background-color var(--_tspeed_fast) var(--_ttype_squish);
+}
+
+.btn-sp {
+
+    max-width: fit-content;
     display: flex;
     place-items: center;
     gap: 0.5em;
@@ -40,6 +58,7 @@ hr {
     0 0 0 -0.1em hsl(var(--bg)), 0 0 0 -0.2em hsl(var(--accent));
     transition: box-shadow var(--_tspeed_fast) var(--_ttype_squish),
     background-color var(--_tspeed_fast) var(--_ttype_squish);
+
 }
 
 .btn :where(svg, img, span) {
@@ -70,7 +89,7 @@ hr {
     border: none;
     border-radius: var(--_radius);
     padding: 0.35em 0.55em;
-    margin-bottom: 20px;
+    margin-bottom: 30px;
     height: 50px;
     width: 100%;
     background-color: hsl(var(--muted));
@@ -112,4 +131,9 @@ hr {
     border-radius: var(--_radius);
     border: 0.1em solid hsl(var(--accent) / 0.3);
     box-shadow: 0 -1em 3em hsl(var(--muted)), 0 1em 3em hsl(var(--accent) / 0.2);
+}
+.mod-label{
+    color: purple;
+    font-weight: bold;
+    font-size: 1.5rem;
 }

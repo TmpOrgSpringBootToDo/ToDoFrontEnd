@@ -10,7 +10,8 @@ import {get, post, patch, destroy} from "./APIHandler";
  * @param userId
  */
 const findAllTasks = (userId, callback) => {
-    const findAllURL = `http://localhost:8080/todo/api/v1/users/${userId}/todo`
+    const useId = localStorage.getItem("userId")
+    const findAllURL = `http://localhost:8080/todo/api/v1/users/${useId}/todo`
     get(
         findAllURL,
         (err, res) => {
@@ -34,7 +35,8 @@ const findAllTasks = (userId, callback) => {
 }
 
 const saveTask = (todoTask) => {
-    const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
+    // const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
+    const userId = localStorage.getItem("userId")
     post(
         `http://localhost:8080/todo/api/v1/users/${userId}/todo`,
         {
@@ -54,7 +56,8 @@ const saveTask = (todoTask) => {
 
 
 const editTask = (taskId, todoTask, callback) => {
-    const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
+    // const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
+    const userId = localStorage.getItem("userId")
     const updateUrl = `http://localhost:8080/todo/api/v1/users/${userId}/todo/${taskId}`
     patch(
         updateUrl,
@@ -76,7 +79,8 @@ const editTask = (taskId, todoTask, callback) => {
 }
 
 const deleteTask = (userId, taskId) => {
-    const deleteUrl = `http://localhost:8080/todo/api/v1/users/${userId}/todo/${taskId}`
+    const useId = localStorage.getItem("userId")
+    const deleteUrl = `http://localhost:8080/todo/api/v1/users/${useId}/todo/${taskId}`
     destroy(deleteUrl, (err, msg) => {
         if(err){
             // TODO: Handle error

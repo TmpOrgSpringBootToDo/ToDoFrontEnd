@@ -46,6 +46,7 @@ const MainForm = ({addTask}) => {
             >
                 <PlusIcon/>
             </button>
+
         </form>
     )
 }

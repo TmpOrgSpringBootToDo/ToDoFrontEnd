@@ -1,10 +1,24 @@
-import React from "react";
+import React, {useEffect, useState} from "react";
 import Button from '@mui/material/Button';
 import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
 import {Link} from "react-router-dom";
+import {findAllTasks} from "../handlers/TodoHandler";
 
 export const NavBar = () =>{
+    const [isUser, setUser] = useState(false);
+
+    useEffect(() => {
+        isUserAvailable()
+    }, [])
+
+    const isUserAvailable = () => {
+        const userId = localStorage.getItem("userId")
+        if(userId){
+            setUser(true)
+        }
+    }
+
     return(
         <div>
             <Box
@@ -25,7 +39,7 @@ export const NavBar = () =>{
                     <Link to="/signup">
                         <Button>Sign-Up</Button>
                     </Link>
-                    <Link to="/todo">
+                    <Link to="/todo" className={isUser? 'display-flex' : 'hidden'}>
                         <Button>ToDoView</Button>
                     </Link>
                 </ButtonGroup>
