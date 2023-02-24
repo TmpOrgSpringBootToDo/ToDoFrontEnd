@@ -27,7 +27,7 @@ label {
 
   /* Light Mode */
   --bg--light: var(--_hue) 50% 10%;
-  --txt--light: var(--_hue) 40% 10%;
+  --txt--light: var(--_hue) 0% 80%;
   --accent--light: var(--_hue) 80% 50%;
   --accent1--light: 10 90% 60%;
   --muted--light: var(--_hue) 30% 99%;
