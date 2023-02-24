@@ -6,6 +6,7 @@ const MainForm = ({addTask}) => {
     const [task, setTask] = useState("");
 
     const handleFormSubmit = (e) => {
+        console.log(e.target.value);
         e.preventDefault();
         const todoTask = {
             name: task,

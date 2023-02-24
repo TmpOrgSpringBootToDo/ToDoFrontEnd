@@ -30,6 +30,7 @@ export const Login = ({addUser}) => {
             onSubmit={handleFormSubmit}>
 
             <div className={styles.wrapper}>
+                <h1>Sign in</h1>
                 <p className="mod-label">User Name</p>
                 <input
                     type="text"
@@ -42,6 +43,7 @@ export const Login = ({addUser}) => {
                     maxLength={20}
 
                 />
+
                 {/*<label*/}
                 {/*    htmlFor="userName"*/}
                 {/*    className={styles.label}*/}
