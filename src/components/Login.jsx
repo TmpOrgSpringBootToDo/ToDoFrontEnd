@@ -2,6 +2,7 @@ import {useState} from "react";
 import {UserIcon} from "@heroicons/react/24/solid";
 import {ArrowLeftIcon} from "@heroicons/react/24/solid";
 import styles from './SignUp.module.css';
+import {login} from '../handlers/LoginHandler'
 
 export const Login = ({addUser}) => {
     const [userName, setUserName] = useState("");
@@ -9,6 +10,17 @@ export const Login = ({addUser}) => {
     const handleFormSubmit = (e) => {
         e.preventDefault();
         //TODO: Call Login API in LoginHandler.jsx
+        const loginHandle = () =>{
+            const loginData = {
+                userNameL:userName,
+                passwordL:password
+            }
+            login(loginData);
+        }
+        loginHandle();
+        //check username and pw with followings
+        //set matching user id to setItem
+
         console.log(`Username: ${userName} Password: ${password}`)
         if(userName==="a" && password==="b"){
             localStorage.setItem("userId", "d88c65bc-e2b2-4039-bf55-801bfda0dd90")
