@@ -11,6 +11,9 @@ const login = (loginData) => {
         (err, res) => {
             if(err){
                 //TODO: Handle error
+                alert("Invalid Email or Password")
+                localStorage.clear();
+                window.location.reload();
                 return
             }
             //console.log(res)
@@ -18,12 +21,7 @@ const login = (loginData) => {
             //console.log(res.data.id)
             localStorage.clear();
             localStorage.setItem("userId", res.data.id)
-
-
-            // localStorage.setItem("email", res.email)
-            // localStorage.setItem("password", res.password)
-            // localStorage.setItem("userName", res.userName)
-            // eslint-disable-next-line no-unused-expressions
+            window.location.reload();
 
         }
     )
