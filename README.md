@@ -1,6 +1,6 @@
 ### Important: A login process based on local storage and DB has applied to this project. 
-### Please switch to [feat/2/loginhandle](https://github.com/TmpOrgSpringBootToDo/ToDoFrontEnd/tree/feat/2/loginhandle) for the latest updates. No need any temp password and login your
-### Own credentials. Before use, please config your mysql credentials at the API.
+### Please switch to [feat/2/loginhandle](https://github.com/TmpOrgSpringBootToDo/ToDoFrontEnd/tree/feat/2/loginhandle) for the latest updates. 
+### No need any temp password and login your own credentials. Before use, please config your mysql credentials at the API.
 
 
 
