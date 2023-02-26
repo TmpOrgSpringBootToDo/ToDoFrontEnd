@@ -68,9 +68,7 @@ function Center() {
 
   return (
     <div className="container">
-      <header>
-        <h1>ToDoViewer - V.1.0.0</h1>
-      </header>
+
       {
         isEditing && (
           <EditForm

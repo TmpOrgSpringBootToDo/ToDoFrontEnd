@@ -253,3 +253,9 @@ hr {
 .display-flex{
   display: flex;
 }
+.header-view{
+  margin-top: 50px;
+}
+.smallTxt{
+  text-align: center;
+}

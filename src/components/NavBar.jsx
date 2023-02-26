@@ -4,6 +4,7 @@ import ButtonGroup from '@mui/material/ButtonGroup';
 import Box from '@mui/material/Box';
 import {Link} from "react-router-dom";
 import {findAllTasks} from "../handlers/TodoHandler";
+import styles from '../index.css';
 
 export const NavBar = () =>{
     const [isUser, setUser] = useState(false);
@@ -21,6 +22,10 @@ export const NavBar = () =>{
 
     return(
         <div>
+            <header>
+                <h1 style={styles.headerView}>ToDo Viewer</h1>
+            </header>
+
             <Box
                 sx={{
                     display: 'flex',
@@ -45,6 +50,7 @@ export const NavBar = () =>{
                 </ButtonGroup>
 
             </Box>
+
         </div>
     );
  }

@@ -1,5 +1,5 @@
 import {useState} from "react";
-import {PlusCircleIcon} from "@heroicons/react/24/solid";
+import {UserIcon,TrashIcon} from "@heroicons/react/24/solid";
 import styles from './SignUp.module.css';
 import useLocalStorage from "../hooks/useLocalStorage";
 import {saveUser} from "../handlers/UserHandler";
@@ -27,8 +27,11 @@ export const SignUp = () => {
         setUserName("");
 
         saveUser(addUserSignUp);
-
-
+    }
+    const btnRest = () => {
+        setEmail("");
+        setPassword("");
+        setUserName("");
     }
 
    return(
@@ -51,10 +54,6 @@ export const SignUp = () => {
                  placeholder="Enter Task"
                  name="userName"
              />
-             {/*<label*/}
-             {/*    htmlFor="userName"*/}
-             {/*    className={styles.label}*/}
-             {/*>User Name</label>*/}
              <p>Email</p>
              <input
                  type="email"
@@ -68,10 +67,6 @@ export const SignUp = () => {
                  placeholder="Enter Task"
                  name="email"
              />
-             {/*<label*/}
-             {/*    htmlFor="email"*/}
-             {/*    className={styles.label}*/}
-             {/*>Email</label>*/}
              <p>Password</p>
              <input
                  type="password"
@@ -85,19 +80,22 @@ export const SignUp = () => {
                  placeholder="Enter Task"
                  name="password"
              />
-             {/*<label*/}
-             {/*    htmlFor="password"*/}
-             {/*    className={styles.label}*/}
-             {/*>Password</label>*/}
 
          </div>
-
          <button
              className={styles.btn}
              aria-label="Add Task"
              type="submit"
          >
-             <PlusCircleIcon />
+             <UserIcon />
+         </button>
+
+         <button
+             className={styles.btn}
+             aria-label="Add Task"
+             onClick={btnRest}
+         >
+             <TrashIcon />
          </button>
 
      </form>

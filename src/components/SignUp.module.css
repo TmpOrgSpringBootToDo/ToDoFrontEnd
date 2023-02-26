@@ -4,6 +4,9 @@
     display: grid;
     gap: 0.2em;
 }
+#resetData{
+    background-color: mediumvioletred;
+}
 .label {
     text-transform: uppercase;
     font-size: 0.7em;
@@ -28,7 +31,6 @@ hr {
 
 .btn {
     max-width: fit-content;
-    /*display: flex;*/
     margin-right: 8px;
     place-items: center;
     gap: 0.5em;
@@ -42,6 +44,8 @@ hr {
     transition: box-shadow var(--_tspeed_fast) var(--_ttype_squish),
     background-color var(--_tspeed_fast) var(--_ttype_squish);
 }
+
+
 
 .btn-sp {
 
@@ -136,4 +140,7 @@ hr {
     color: purple;
     font-weight: bold;
     font-size: 1.5rem;
+}
+.delete-btn {
+    --accent: var(--accent1);
 }

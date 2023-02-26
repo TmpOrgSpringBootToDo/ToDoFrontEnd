@@ -1,6 +1,6 @@
 import {useState} from "react";
-import {UserIcon} from "@heroicons/react/24/solid";
-import {ArrowLeftIcon} from "@heroicons/react/24/solid";
+import {UserPlusIcon} from "@heroicons/react/24/solid";
+import {UserMinusIcon,} from "@heroicons/react/24/solid";
 import styles from './SignUp.module.css';
 import {login} from '../handlers/LoginHandler'
 
@@ -20,25 +20,12 @@ export const Login = ({addUser}) => {
         loginHandle();
         setEmail("");
         setPassword("");
-
-        //check username and pw with followings
-        //set matching user id to setItem
-
-        // console.log(`Username: ${email} Password: ${password}`)
-        // if(email==="a" && password==="b"){
-        //     localStorage.setItem("userId", "d88c65bc-e2b2-4039-bf55-801bfda0dd90")
-        //     // let btnLogin = document.getElementById("btn-login");
-        //     // btnLogin.addClass("btn-color");
-        //     window.location.reload();
-        // }
     }
 
     const logout = () => {
         localStorage.clear()
         window.location.reload();
     }
-
-
 
     return(
         <form
@@ -58,12 +45,6 @@ export const Login = ({addUser}) => {
                     maxLength={100}
 
                 />
-
-                {/*<label*/}
-                {/*    htmlFor="userName"*/}
-                {/*    className={styles.label}*/}
-                {/*>User Name</label>*/}
-
                 <p className="mod-label">Password</p>
                 <input
                     type="password"
@@ -76,10 +57,6 @@ export const Login = ({addUser}) => {
                     maxLength={30}
 
                 />
-                {/*<label*/}
-                {/*    htmlFor="password"*/}
-                {/*    className={styles.label}*/}
-                {/*>Password</label>*/}
 
             </div>
             <div>
@@ -90,7 +67,7 @@ export const Login = ({addUser}) => {
                 aria-label="Add Task"
                 type="submit"
             >
-                <UserIcon />
+                <UserPlusIcon />
             </button>
                 <button
                     id="btn-logout"
@@ -99,7 +76,8 @@ export const Login = ({addUser}) => {
                     type="submit"
                     onClick={logout}
                 >
-                    <ArrowLeftIcon />
+                    <UserMinusIcon />
+
                 </button>
             </div>
         </form>
