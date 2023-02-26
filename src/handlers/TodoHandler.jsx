@@ -40,7 +40,7 @@ const saveTask = (todoTask) => {
     post(
         `http://localhost:8080/todo/api/v1/users/${userId}/todo`,
         {
-            userIdTodo: "d88c65bc-e2b2-4039-bf55-801bfda0dd90",
+            userIdTodo: userId,
             toDo: todoTask.name,
             dateTime: new Date(),
             isComplete:todoTask.isComplete
@@ -89,7 +89,7 @@ const isComplete = (completeStatus) => {
     patch(
         updateUrl,
         {
-            userIdTodo: "d88c65bc-e2b2-4039-bf55-801bfda0dd90",
+            userIdTodo: userId,
             toDo: completeStatus.taskName,
             dateTime: new Date(),
             isComplete:completeStatus.complete

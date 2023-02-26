@@ -246,9 +246,9 @@ hr {
   background-color: mediumvioletred;
 }
 
-.hidden{
-  display: none;
-}
+/*.hidden{*/
+/*  display: none;*/
+/*}*/
 
 .display-flex{
   display: flex;

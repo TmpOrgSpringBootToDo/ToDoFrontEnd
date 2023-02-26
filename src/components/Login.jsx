@@ -5,29 +5,32 @@ import styles from './SignUp.module.css';
 import {login} from '../handlers/LoginHandler'
 
 export const Login = ({addUser}) => {
-    const [userName, setUserName] = useState("");
+    const [email, setEmail] = useState("");
     const [password, setPassword] = useState("");
     const handleFormSubmit = (e) => {
         e.preventDefault();
         //TODO: Call Login API in LoginHandler.jsx
         const loginHandle = () =>{
             const loginData = {
-                userNameL:userName,
+                emailL:email,
                 passwordL:password
             }
             login(loginData);
         }
         loginHandle();
+        setEmail("");
+        setPassword("");
+
         //check username and pw with followings
         //set matching user id to setItem
 
-        console.log(`Username: ${userName} Password: ${password}`)
-        if(userName==="a" && password==="b"){
-            localStorage.setItem("userId", "d88c65bc-e2b2-4039-bf55-801bfda0dd90")
-            // let btnLogin = document.getElementById("btn-login");
-            // btnLogin.addClass("btn-color");
-            window.location.reload();
-        }
+        // console.log(`Username: ${email} Password: ${password}`)
+        // if(email==="a" && password==="b"){
+        //     localStorage.setItem("userId", "d88c65bc-e2b2-4039-bf55-801bfda0dd90")
+        //     // let btnLogin = document.getElementById("btn-login");
+        //     // btnLogin.addClass("btn-color");
+        //     window.location.reload();
+        // }
     }
 
     const logout = () => {
@@ -45,14 +48,14 @@ export const Login = ({addUser}) => {
                 <h1>Sign in</h1>
                 <p className="mod-label">User Name</p>
                 <input
-                    type="text"
-                    id="userName"
+                    type="email"
+                    id="email"
                     className={styles.input}
-                    value={userName}
-                    onInput={(e) => setUserName(e.target.value)}
+                    value={email}
+                    onInput={(e) => setEmail(e.target.value)}
                     required
                     autoFocus
-                    maxLength={20}
+                    maxLength={100}
 
                 />
 
@@ -70,7 +73,7 @@ export const Login = ({addUser}) => {
                     onInput={(e) => setPassword(e.target.value)}
                     required
                     autoFocus
-                    maxLength={20}
+                    maxLength={30}
 
                 />
                 {/*<label*/}
