@@ -33,7 +33,7 @@ export const Login = ({addUser}) => {
 
             <div className={styles.wrapper}>
                 <h1>Sign in</h1>
-                <p className="mod-label">User Name</p>
+                <p className="mod-label">Email</p>
                 <input
                     type="email"
                     id="email"
