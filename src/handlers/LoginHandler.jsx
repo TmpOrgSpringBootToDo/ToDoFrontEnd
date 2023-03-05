@@ -1,12 +1,14 @@
+
 import {get, post, patch, destroy} from "./APIHandler";
 import { redirect } from "react-router-dom";
 
 
 const responseData ={};
 const login = (loginData) => {
+    console.log(process.env["REACT_APP_TO_DO_URL"]);
     //TODO: Change fake url to login url
     get(
-        `http://localhost:8080/todo/api/v1/users/${loginData.emailL}/${loginData.passwordL}`,
+         process.env["REACT_APP_TO_DO_URL"] + `${loginData.emailL}/${loginData.passwordL}`,
 
         (err, res) => {
             if(err){

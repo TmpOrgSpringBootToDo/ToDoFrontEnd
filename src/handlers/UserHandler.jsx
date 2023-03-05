@@ -4,7 +4,7 @@ import {post} from "./APIHandler";
     // const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
    // const userId = localStorage.getItem("userId")
     post(
-        `http://localhost:8080/todo/api/v1/users`,
+        process.env["REACT_APP_USERS_URL"],
         {
             userName: addUserSignUp.userNameSU,
             email: addUserSignUp.emailSU,

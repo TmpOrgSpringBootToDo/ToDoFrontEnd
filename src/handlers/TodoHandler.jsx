@@ -11,7 +11,7 @@ import {get, post, patch, destroy} from "./APIHandler";
  */
 const findAllTasks = (userId, callback) => {
     const useId = localStorage.getItem("userId")
-    const findAllURL = `http://localhost:8080/todo/api/v1/users/${useId}/todo`
+    const findAllURL = process.env["REACT_APP_TO_DO_URL"] + `${useId}/todo`
     get(
         findAllURL,
         (err, res) => {
@@ -38,7 +38,7 @@ const saveTask = (todoTask) => {
     // const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
     const userId = localStorage.getItem("userId")
     post(
-        `http://localhost:8080/todo/api/v1/users/${userId}/todo`,
+        process.env["REACT_APP_TO_DO_URL"] + `${userId}/todo`,
         {
             userIdTodo: userId,
             toDo: todoTask.name,
@@ -55,11 +55,10 @@ const saveTask = (todoTask) => {
     )
 }
 
-
 const editTask = (taskId, todoTask, callback) => {
     // const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
     const userId = localStorage.getItem("userId")
-    const updateUrl = `http://localhost:8080/todo/api/v1/users/${userId}/todo/${taskId}`
+    const updateUrl = process.env["REACT_APP_TO_DO_URL"] + `${userId}/todo/${taskId}`
     const data = {
         userIdTodo: userId,
         toDo: todoTask.name,
@@ -83,14 +82,15 @@ const editTask = (taskId, todoTask, callback) => {
 }
 
 const isComplete = (completeStatus) => {
+    console.log(completeStatus)
     // const userId = "d88c65bc-e2b2-4039-bf55-801bfda0dd90"
     const userId = localStorage.getItem("userId")
-    const updateUrl = `http://localhost:8080/todo/api/v1/users/${userId}/todo/${completeStatus.taskId}`
+    const updateUrl = process.env["REACT_APP_TO_DO_URL"] + `${userId}/todo/${completeStatus.taskId}`
     patch(
         updateUrl,
         {
             userIdTodo: userId,
-            toDo: completeStatus.taskName,
+            toDo: completeStatus.name,
             dateTime: new Date(),
             isComplete:completeStatus.complete
         },
@@ -106,14 +106,9 @@ const isComplete = (completeStatus) => {
     )
 }
 
-
-
-
-
-
 const deleteTask = (userId, taskId) => {
     const useId = localStorage.getItem("userId")
-    const deleteUrl = `http://localhost:8080/todo/api/v1/users/${useId}/todo/${taskId}`
+    const deleteUrl = process.env["REACT_APP_TO_DO_URL"] + `${useId}/todo/${taskId}`
     destroy(deleteUrl, (err, msg) => {
         if(err){
             // TODO: Handle error
